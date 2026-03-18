@@ -4,24 +4,6 @@
 @custom-variant dark (&:is(.dark *));
 
 
-@layer base {
-  * {
-    @apply border-border outline-ring/50 antialiased;
-    font-family: var(--font-sans);
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
 
 
 :root {
@@ -200,4 +182,52 @@
     @apply bg-background text-foreground;
     letter-spacing: var(--tracking-normal);
   }
+}
+
+
+@layer components {
+.page-title {
+ @apply text-3xl font-bold text-foreground tracking-tight
+}
+
+.column-title {
+ @apply flex items-center gap-1 font-bold
+}
+
+.intro-row {
+ @apply mt-4 grid  gap-4 md:flex-row md:items-center md:justify-between;
+}
+
+.intro-row p {
+ @apply text-sm text-muted-foreground;
+}
+
+.actions-row {
+ @apply flex w-full flex-col items-stretch gap-2 md:w-auto md:flex-row md:items-center md:justify-end;
+}
+
+.search-field {
+ @apply relative w-full md:w-72;
+}
+
+.search-field input {
+ @apply h-10 rounded-md border border-input bg-background px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring;
+}
+
+.search-icon {
+ @apply pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground;
+}
+
+.subject-action-buttons {
+ @apply flex  gap-2 md:w-auto md:flex-row;
+}
+
+.subject-action-control {
+ @apply h-10  rounded-md border border-input bg-background px-4 py-2 text-sm text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring md:w-auto;
+}
+
+.subject-action-control[data-slot="button"] {
+ @apply justify-center font-medium;
+}
+
 }
